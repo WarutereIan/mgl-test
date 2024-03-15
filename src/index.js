@@ -1,21 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import UserProvider from './components/providers/UserProvider';
-import PresaleProvider from './components/providers/PresaleProvider';
-import WalletProvider from './components/providers/WalletProvider';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import UserProvider from "./components/providers/UserProvider";
+import PresaleProvider from "./components/providers/PresaleProvider";
+import WalletProvider from "./components/providers/WalletProvider";
+import { Web3ModalProvider } from "./components/providers/Web3ModalProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <UserProvider>
-      <PresaleProvider>
-        <App />
-      </PresaleProvider>
-    </UserProvider>
+    <Web3ModalProvider>
+      <UserProvider>
+        <PresaleProvider>
+          <App />
+        </PresaleProvider>
+      </UserProvider>
+    </Web3ModalProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function
