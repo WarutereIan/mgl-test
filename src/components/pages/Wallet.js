@@ -33,7 +33,7 @@ import {
 } from "../../utils/tokenUtils";
 
 import { useWeb3React } from "@web3-react/core";
-import { walletConnect } from "../../utils/connectors";
+import { walletconnect } from "../../utils/connectors";
 
 const { Paragraph } = Typography;
 const initTokenList = [{ name: "MGL", price: 0, balance: 0, address: "" }];
@@ -61,7 +61,7 @@ function Wallet() {
 
   const handleConnect = async () => {
     try {
-      await activate(walletConnect);
+      await activate(walletconnect);
       console.log(account);
     } catch (err) {
       console.error(err);

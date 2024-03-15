@@ -1,17 +1,34 @@
 import { WalletConnectConnector } from "@web3-react/walletconnect-connector";
 
-export const walletConnect = new WalletConnectConnector({
-  rpcUrl: "https://rpc.ankr.com/bsc",
-  bridge: "https://bridge.walletconnect.org",
+export const walletconnect = new WalletConnectConnector({
+  //rpcUrl: "https://rpc.ankr.com/bsc",
+  //bridge: "https://bridge.walletconnect.org",
   qrcode: true,
+  rpc: "https://rpc.ankr.com/bsc",
+  chainId: 56,
+  supportedChainIds: [56, 137],
 });
+/* import { initializeConnector } from "@web3-react/core";
+import { WalletConnect } from "@web3-react/walletconnect";
 
-/* import { WalletConnectConnector } from "@wagmi/core/connectors";
+const [web3WalletConnect, web3WalletConnectHooks] = initializeConnector(
+  (actions) => {
+    return new new WalletConnect({
+      options: {
+        rpc: "https://rpc.ankr.com/bsc",
+        showQrModal: true,
+        chains: [56, 137],
+        projectId: process.env.REACT_APP_FB_WC_PROJECT_ID,
+      },
+    })();
+  }
+);
 
-export const walletConnectConnector = new walletConnectConnector({
-  options: {
-    projectId: process.env.REACT_APP_FB_WC_PROJECT_ID,
-    showQrModal: true,
-  },
-});
+
+const walletConnectConnection = {
+  connector: web3WalletConnect,
+  hooks: web3WalletConnectHooks,
+};
+
+export const PRIORITIZED_CONNECTORS = [walletConnectConnection];
  */
