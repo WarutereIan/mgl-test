@@ -6,17 +6,15 @@ import reportWebVitals from "./reportWebVitals";
 import UserProvider from "./components/providers/UserProvider";
 import PresaleProvider from "./components/providers/PresaleProvider";
 import WalletProvider from "./components/providers/WalletProvider";
-import { Web3ModalProvider } from "./components/providers/Web3ModalProvider";
+import Web3ModalProvider from "./components/providers/Web3ModalProvider";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Web3ModalProvider>
-      <UserProvider>
-        <PresaleProvider>
-          <App />
-        </PresaleProvider>
-      </UserProvider>
-    </Web3ModalProvider>
+    <UserProvider>
+      <PresaleProvider>
+        <App />
+      </PresaleProvider>
+    </UserProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );

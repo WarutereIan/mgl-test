@@ -32,6 +32,9 @@ import {
   getTokenPriceInUsd,
 } from "../../utils/tokenUtils";
 
+import { useWeb3React } from "@web3-react/core";
+import { walletConnect } from "../../utils/connectors";
+
 const { Paragraph } = Typography;
 const initTokenList = [{ name: "MGL", price: 0, balance: 0, address: "" }];
 function Wallet() {
@@ -53,6 +56,25 @@ function Wallet() {
   const wallet = new WalletUtil();
   const serverUrl = SERVER_URL;
   let frequent;
+
+  const { account, activate, active, deactivate } = useWeb3React();
+
+  const handleConnect = async () => {
+    try {
+      await activate(walletConnect);
+      console.log(account);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleDisconnect = async () => {
+    try {
+      await deactivate();
+    } catch (err) {
+      console.error(err);
+    }
+  };
 
   useEffect(() => {
     if (id) setIdx(parseInt(id));
@@ -290,6 +312,15 @@ function Wallet() {
                     <WalletManageKeys network={network} />
                   ) : idx === 5 ? (
                     <WalletProfile />
+                  ) : idx === 6 ? (
+                    <>
+                      <button
+                        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded  h-10 absolute left-1/2"
+                        onClick={handleConnect}
+                      >
+                        Wallet Connect
+                      </button>
+                    </>
                   ) : null}
                 </Row>
               </Col>
