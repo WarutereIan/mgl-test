@@ -54,3 +54,7 @@ Using this pattern, the code can easily accommodate any new tokens which would o
 **WalletConnectv2 Integration**
 
 WalletConnectv2 packages require wagmi and viem v2 as dependencies, which in turn require react 18 as the minimal version of react used. This brings about inconsistencies in the code operation, as babel can also not transpile these packages correctly. I was thus limited to using v1 of walletConnect but its support has since ceased. Even though the walletConnect modal shows upon invocation, the app does not connect to the walletConnect cloud service, hence not connecting to the user's preferred wallet.  This could be solved with a lot of workarounds especially focusing on babel and craco, but I suspect this would introduce other breaking changes to the rest of the app. Time is however a little limited on this so I settled for v1. Trying to work around this is also what has consumed the biggest portion of the time spent on the fixes.
+
+**Possible fixes**
+
+The application could be ported over to vite, which would offer a better development and build experience than craco and the associated webpack build. Vite's more modern native build tool would also supposedly compile the code babel fails to compile of the more recent packages. This would also future-proof the project in the event of so many changes. 
