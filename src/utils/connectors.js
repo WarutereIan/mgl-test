@@ -13,22 +13,20 @@ import { WalletConnect } from "@web3-react/walletconnect";
 
 const [web3WalletConnect, web3WalletConnectHooks] = initializeConnector(
   (actions) => {
-    return new new WalletConnect({
+    return new WalletConnect({
       options: {
         rpc: "https://rpc.ankr.com/bsc",
         showQrModal: true,
         chains: [56, 137],
         projectId: process.env.REACT_APP_FB_WC_PROJECT_ID,
       },
-    })();
+    });
   }
 );
-
 
 const walletConnectConnection = {
   connector: web3WalletConnect,
   hooks: web3WalletConnectHooks,
 };
 
-export const PRIORITIZED_CONNECTORS = [walletConnectConnection];
- */
+export const PRIORITIZED_CONNECTORS = [walletConnectConnection]; */

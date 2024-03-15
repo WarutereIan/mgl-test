@@ -57,7 +57,7 @@ function Wallet() {
   const serverUrl = SERVER_URL;
   let frequent;
 
-  const { account, activate, active, deactivate } = useWeb3React();
+  const { account, activate, deactivate } = useWeb3React();
 
   const handleConnect = async () => {
     try {

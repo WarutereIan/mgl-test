@@ -21,12 +21,10 @@ import { getAnalytics } from "firebase/analytics";
 import "dotenv/config.js";
 import { Web3ReactProvider } from "@web3-react/core";
 import { Web3Provider } from "@ethersproject/providers";
-import { walletconnect } from "./utils/connectors.js";
-//import { createWeb3Modal, defaultConfig } from "@web3modal/ethers";
 
 const projectId = process.env.WC_PROJECT_ID;
 
-/*const bsc = {
+/* const bsc = {
   chainId: 56,
   name: "BNB Smart Chain",
   currency: "BNB",
@@ -45,9 +43,9 @@ const polygon = {
 const metadata = {
   name: "MRL",
   description: "Connect to MRL exchange!",
-}; */
+};
 
-/* const ethersConfig = defaultConfig({
+const ethersConfig = defaultConfig({
   metadata,
   defaultChainId: 56,
   rpcUrl: "...",
