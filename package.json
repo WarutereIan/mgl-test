@@ -47,6 +47,7 @@
   },
   "scripts": {
     "client": " craco  start",
+    "build": "craco build",
     "server": "cd backend & npm start",
     "dev": "concurrently \"npm run server\" \" npm run client\"",
     "test": "craco test",
