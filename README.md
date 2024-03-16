@@ -1,14 +1,22 @@
 # Observations & Comments: 
 
 **UI Fixes** 
-* In case a wrong email code is provided by the user during sign up, the exact nature of the error could be displayed to the user to notify them of this. 
+ * In case a wrong email code is provided by the user during sign up, the exact nature of the error could be displayed to the user to notify them of this. Incorrect passwords should also be flagged to the user at the 
+ login 
+  page 
  * On periodic token refresh in the user wallet, the wallets assets displayed are that of the BSC mainnet even when a different chain has been selected by the user. This shouldn't be the case.
+   
 
-**Performance improvements**
+**Performance improvements:**
  * The token balances for various assets can be cached in the database or an actual cache in the backend to reduce the wait times when checking profile balances, especially when the user first launches the profile page
  * When sending the email activation code, it should be checked whether the user's email is already registered or activated to reduce overhead and save on emailing costs for reused emails.
+ * The token prices should have a separate websocket-based api to enable streaming of the prices in real time, rather than having the client application poll for updates. This will improve both price accuracy for users 
+   looking to perform trades, and will also improve the server's performance. The REST api server would be free to serve only requests generated from REST endpoints, while the websocket server would be optimized for 
+   streaming the data.
+ * A microservice-based architecture could be implemented to scale out endpoints with high demand in production. Webhooks can also be configured to be on their own implementation for high performance of requests to 
+   webhooks. The services can then be coupled using solutions such as queues and workers to consume messages from the queues.    
  
- **Security Optimization**
+ **Security Optimizations:**
  * The key phrase should also be stored encrypted in the database to protect the user's assets in case of a hack or breach.
  * Two-factor authorization could be implemented for certain wallet actions such as sending tokens to further improve wallet security.
  
