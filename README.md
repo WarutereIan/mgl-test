@@ -13,8 +13,8 @@
  * The token prices should have a separate websocket-based api to enable streaming of the prices in real time, rather than having the client application poll for updates. This will improve both price accuracy for users 
    looking to perform trades, and will also improve the server's performance. The REST api server would be free to serve only requests generated from REST endpoints, while the websocket server would be optimized for 
    streaming the data.
- * A microservice-based architecture could be implemented to scale out endpoints with high demand in production. Webhooks can also be configured to be on their own implementation for high performance of requests to 
-   webhooks. The services can then be coupled using solutions such as queues and workers to consume messages from the queues.    
+ * A microservice-based architecture could be implemented to scale out endpoints with high demand in production. Webhook endpoints can also be configured to be on their own servers/instances for high performance of 
+   requests to webhooks. The microservices can then be coupled using solutions such as queues, and workers to consume messages from the queues.    
  
  **Security Optimizations:**
  * The key phrase should also be stored encrypted in the database to protect the user's assets in case of a hack or breach.
